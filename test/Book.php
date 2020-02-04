@@ -8,6 +8,15 @@ class Book
     public $author;
     public $available;
 
+    public function __construct(
+        $isbn, $title, $author, $available)
+    {
+        $this->isbn = $isbn;
+        $this->title = $title;
+        $this->author = $author;
+        $this->available = $available;
+    }
+
     // Methods are function
     public function getPrintableTitle()
     {
@@ -37,17 +46,26 @@ class Book
 
 
 // Instantiate
-$harry_potter = new Book();
+//$harry_potter = new Book();
 
-$harry_potter->isbn = 12345678;
-$harry_potter->title = 'Harry Potter and The Chamber Of Wizard';
-$harry_potter->author = 'JK Rowling';
-$harry_potter->available = 0;
+//$harry_potter->isbn = 12345678;
+//$harry_potter->title = 'Harry Potter and The Chamber Of Wizard';
+//$harry_potter->author = 'JK Rowling';
+//$harry_potter->available = 0;
 
-if ($harry_potter->getCopy()) {
-    echo "Here is your copy of " . $harry_potter->title . "<br>";
-} else {
-    echo "Sorry its gone!";
-}
 
-//var_dump($harry_potter);
+// Constructor
+$harry_potter = new Book(
+    12345678,
+    'Harry Potter and The Chamber of Wizard',
+    'JK Rowling',
+    10
+);
+
+//if ($harry_potter->getCopy()) {
+//    echo "Here is your copy of " . $harry_potter->title . "<br>";
+//} else {
+//    echo "Sorry its gone!";
+//}
+
+var_dump($harry_potter);
