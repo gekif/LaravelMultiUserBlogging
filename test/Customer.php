@@ -2,6 +2,8 @@
 
 class Customer
 {
+    private static $lastId = 0;
+
     private $id;
     private $firstName;
     private $surnName;
@@ -13,12 +15,32 @@ class Customer
         $id, $firstName, $surnName, $lastName, $email
     )
     {
-        $this->id = $id;
+//        $this->id = $id;
+
+        if ($id == null) {
+            $this->id = ++self::$lastId;
+
+        } else {
+            $this->id = $id;
+
+            if ($id > self::$lastId) {
+                self::$lastId = $id;
+            }
+        }
+
         $this->firstName = $firstName;
         $this->surnName = $surnName;
         $this->lastName = $lastName;
         $this->email = $email;
     }
+
+
+    // Accessors
+    public static function getLastId()
+    {
+        return self::$lastId;
+    }
+
 
     /**
      * @return mixed
