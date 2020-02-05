@@ -26,9 +26,18 @@ $firstCustomer = new Customer(
 //echo $harry_potter;
 
 
-var_dump($harry_potter->title);
-
+//var_dump($harry_potter->title);
 //var_dump($firstCustomer);
 
+
+/**
+ * Testing Accessors
+ */
+
+//var_dump($firstCustomer->getFirstName());
+var_dump($firstCustomer->getFullName());
+var_dump($firstCustomer->getEmail());
+var_dump($firstCustomer->setEmail('tokofikar@gmail.com'));
+var_dump($firstCustomer->getEmail());
 
 
