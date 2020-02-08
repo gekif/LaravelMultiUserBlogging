@@ -1,12 +1,15 @@
 <?php
 
+use Bookstore\Domain\Book as MyBook;
+use Bookstore\Domain\Customer;
+
 // Lets require classes
-require_once __DIR__ . '/Book.php';
-require_once __DIR__ . '/Customer.php';
+require_once __DIR__ . '/Domain/Book.php';
+require_once __DIR__ . '/Domain/Customer.php';
 
 
 // Instantiate
-$harry_potter = new Book(
+$harry_potter = new MyBook(
     12345678,
     'Harry Potter and The Chamber of Wizard',
     'JK Rowling',
@@ -71,3 +74,7 @@ echo '<br>';
 
 // Reference it using class name itself
 echo Customer::getLastId();
+
+echo '<br>';
+
+var_dump($firstCustomer);
