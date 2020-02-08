@@ -81,13 +81,15 @@ $secondCustomer = new Customer(
 //var_dump($firstCustomer::getLastId());
 
 // Reference it using existing instance
-echo $firstCustomer::getLastId();
+//echo $firstCustomer::getLastId();
 
-echo '<br>';
+//echo '<br>';
 
 // Reference it using class name itself
-echo Customer::getLastId();
+//echo Customer::getLastId();
 
-echo '<br>';
+//echo '<br>';
 
-var_dump($firstCustomer);
+//var_dump($firstCustomer);
+
+var_dump($firstCustomer->sayHi());

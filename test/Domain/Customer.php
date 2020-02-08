@@ -136,7 +136,10 @@ class Customer extends Person
     }
 
 
-
+    public function sayHi()
+    {
+        return 'Howdy ' . $this->firstName . ', Parent Class: ' . parent::sayHi();
+    }
 
 
 }

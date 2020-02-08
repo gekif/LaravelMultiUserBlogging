@@ -54,6 +54,12 @@ class Person
     }
 
 
+    public function sayHi()
+    {
+        return 'Hi, What\'s up ' . $this->firstName;
+    }
+
+
 
 
 
