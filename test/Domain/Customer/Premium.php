@@ -5,7 +5,7 @@ namespace Bookstore\Domain\Customer;
 use Bookstore\Domain\Customer;
 
 
-class Premium extends Customer
+class Premium implements Customer
 {
     // Lets add more methods
     public function getMonthlyFee()

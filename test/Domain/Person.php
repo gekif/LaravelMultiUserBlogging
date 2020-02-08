@@ -5,16 +5,43 @@ namespace Bookstore\Domain;
 
 class Person
 {
+    private static $lastId = 0;
+
+    private $id;
+    private $email;
+
     protected $firstName;
     protected $surnName;
     protected $lastName;
 
 
-    public function __construct($firstName, $surnName, $lastName)
+    public function __construct(
+        $id, $firstName, $surnName, $lastName, $email
+    )
     {
+        if ($id == null) {
+            $this->id = ++self::$lastId;
+
+        } else {
+            $this->id = $id;
+
+            if ($id > self::$lastId) {
+                self::$lastId = $id;
+            }
+        }
+
         $this->firstName = $firstName;
         $this->surnName = $surnName;
         $this->lastName = $lastName;
+        $this->email = $email;
+
+    }
+
+
+    // Accessors
+    public static function getLastId()
+    {
+        return self::$lastId;
     }
 
 
@@ -51,6 +78,36 @@ class Person
     public function setLastName($lastName): void
     {
         $this->lastName = $lastName;
+    }
+
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+
+    public function setEmail($email): void
+    {
+        $this->email = $email;
+    }
+
+
+    public function getFullName()
+    {
+        return strtoupper($this->firstName . ' ' . $this->surnName . ' ' . $this->lastName);
     }
 
 
