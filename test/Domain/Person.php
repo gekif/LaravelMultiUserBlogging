@@ -2,12 +2,13 @@
 
 namespace Bookstore\Domain;
 
+use Bookstore\Utils\Unique;
+
 
 class Person
 {
-    private static $lastId = 0;
+    use Unique;
 
-    private $id;
     private $email;
 
     protected $firstName;
@@ -19,16 +20,7 @@ class Person
         $id, $firstName, $surnName, $lastName, $email
     )
     {
-        if ($id == null) {
-            $this->id = ++self::$lastId;
-
-        } else {
-            $this->id = $id;
-
-            if ($id > self::$lastId) {
-                self::$lastId = $id;
-            }
-        }
+        $this->setId($id);
 
         $this->firstName = $firstName;
         $this->surnName = $surnName;
@@ -39,10 +31,10 @@ class Person
 
 
     // Accessors
-    public static function getLastId()
-    {
-        return self::$lastId;
-    }
+//    public static function getLastId()
+//    {
+//        return self::$lastId;
+//    }
 
 
     public function getFirstName()

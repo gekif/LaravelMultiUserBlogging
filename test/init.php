@@ -90,11 +90,13 @@ $secondCustomer = new Premium(
 );
 
 
-var_dump(processPayment($firstCustomer, 100.00));
-echo '<br>';
+//var_dump(processPayment($firstCustomer, 100.00));
+//echo '<br>';
+//
+//var_dump(processPayment($secondCustomer, 100.00));
 
-var_dump(processPayment($secondCustomer, 100.00));
 
+var_dump($firstCustomer->getId());
 
 
 
