@@ -5,6 +5,7 @@ use Bookstore\Domain\Customer;
 
 use Bookstore\Domain\Customer\Basic;
 use Bookstore\Domain\Customer\Premium;
+use Bookstore\Domain\Payer;
 
 
 // Autoloader function to autoload classes
@@ -25,6 +26,22 @@ function checkIfValid(Customer $customer, $books)
 {
     return $customer->getAmountToBorrow() >= count($books);
 }
+
+
+// Function process payment
+function processPayment(Payer $payer, float $amount)
+{
+    if ($payer->isExtentOfTaxes()) {
+        return $payer->isExtentOfTaxes();
+    } else {
+        $amount *= 1.20;
+    }
+
+    return $payer->pay($amount);
+
+}
+
+
 
 // Instantiate
 $harry_potter = new MyBook(
@@ -72,28 +89,13 @@ $secondCustomer = new Premium(
     "f.pujihastuti@gmail.com"
 );
 
-var_dump(checkIfValid($firstCustomer, [
-    $harry_potter, $harry_potter1,
-    $harry_potter2, $harry_potter3
-]));
+
+var_dump(processPayment($firstCustomer, 100.00));
 echo '<br>';
 
-var_dump($firstCustomer->getType());
-echo '<br>';
+var_dump(processPayment($secondCustomer, 100.00));
 
-var_dump($firstCustomer->getFullName());
-echo '<br>';
 
-var_dump($firstCustomer->pay(1000.00));
-echo '<br>';
 
-var_dump($firstCustomer->isExtentOfTaxes());
-echo '<br>';
-
-var_dump($secondCustomer->pay(5000.00));
-echo '<br>';
-
-var_dump($secondCustomer->isExtentOfTaxes());
-echo '<br>';
 
 
