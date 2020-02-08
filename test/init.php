@@ -8,6 +8,19 @@ require_once __DIR__ . '/Domain/Book.php';
 require_once __DIR__ . '/Domain/Customer.php';
 
 
+// Autoloader function to autoload classes
+function autoloader($className)
+{
+    $lastSlash = strpos($className, '\\') + 1;
+    $className = substr($className, $lastSlash);
+    $directory = str_replace('\\', '/', $className);
+    $fileName = __DIR__ . '/' . $directory . '.php';
+    require_once $fileName;
+}
+
+spl_autoload_register('autoloader');
+
+
 // Instantiate
 $harry_potter = new MyBook(
     12345678,
