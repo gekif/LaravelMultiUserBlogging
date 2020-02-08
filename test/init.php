@@ -3,6 +3,9 @@
 use Bookstore\Domain\Book as MyBook;
 use Bookstore\Domain\Customer;
 
+use Bookstore\Domain\Customer\Basic;
+use Bookstore\Domain\Customer\Premium;
+
 
 // Autoloader function to autoload classes
 function autoloader($className)
@@ -31,8 +34,29 @@ $harry_potter = new MyBook(
     10
 );
 
+$harry_potter1 = new MyBook(
+    12345678,
+    'Harry Potter and The Chamber of Wizard',
+    'JK Rowling',
+    10
+);
 
-$firstCustomer = new Customer(
+$harry_potter2 = new MyBook(
+    12345678,
+    'Harry Potter and The Chamber of Wizard',
+    'JK Rowling',
+    10
+);
+
+$harry_potter3 = new MyBook(
+    12345678,
+    'Harry Potter and The Chamber of Wizard',
+    'JK Rowling',
+    10
+);
+
+
+$firstCustomer = new Basic(
     1,
     "Dzulfikar",
     "Ganteng",
@@ -40,7 +64,7 @@ $firstCustomer = new Customer(
     "dzulfikar.maulana@gmail.com"
 );
 
-$secondCustomer = new Customer(
+$secondCustomer = new Premium(
     null,
     "Febrina",
     "Cantik",
@@ -96,5 +120,8 @@ $secondCustomer = new Customer(
 
 //var_dump($firstCustomer->sayHi());
 
-var_dump(checkIfValid($firstCustomer, $harry_potter));
+var_dump(checkIfValid($firstCustomer, [
+    $harry_potter, $harry_potter1,
+    $harry_potter2, $harry_potter3
+]));
 
