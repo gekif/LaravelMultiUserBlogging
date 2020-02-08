@@ -2,10 +2,12 @@
 
 namespace Bookstore\Domain;
 
-interface Customer
+interface Customer extends Payer
 {
-    //  Method
      public function getMonthlyFee();
+
      public function getAmountToBorrow();
+
      public function getType();
+
 }

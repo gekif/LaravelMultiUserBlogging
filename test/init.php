@@ -81,4 +81,19 @@ echo '<br>';
 var_dump($firstCustomer->getType());
 echo '<br>';
 
+var_dump($firstCustomer->getFullName());
+echo '<br>';
+
+var_dump($firstCustomer->pay(1000.00));
+echo '<br>';
+
+var_dump($firstCustomer->isExtentOfTaxes());
+echo '<br>';
+
+var_dump($secondCustomer->pay(5000.00));
+echo '<br>';
+
+var_dump($secondCustomer->isExtentOfTaxes());
+echo '<br>';
+
 
