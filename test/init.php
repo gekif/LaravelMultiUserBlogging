@@ -4,8 +4,8 @@ use Bookstore\Domain\Book as MyBook;
 use Bookstore\Domain\Customer;
 
 // Lets require classes
-require_once __DIR__ . '/Domain/Book.php';
-require_once __DIR__ . '/Domain/Customer.php';
+//require_once __DIR__ . '/Domain/Book.php';
+//require_once __DIR__ . '/Domain/Customer.php';
 
 
 // Autoloader function to autoload classes

@@ -2,14 +2,14 @@
 
 namespace Bookstore\Domain;
 
-class Customer
+class Customer extends Person
 {
     private static $lastId = 0;
 
     private $id;
-    private $firstName;
-    private $surnName;
-    private $lastName;
+//    private $firstName;
+//    private $surnName;
+//    private $lastName;
     private $email;
 
 
@@ -18,6 +18,8 @@ class Customer
     )
     {
 //        $this->id = $id;
+
+        parent::__construct($firstName, $surnName, $lastName);
 
         if ($id == null) {
             $this->id = ++self::$lastId;
