@@ -5,6 +5,7 @@ use Bookstore\Domain\Customer;
 
 use Bookstore\Domain\Customer\Basic;
 use Bookstore\Domain\Customer\Premium;
+use Bookstore\Domain\Manager;
 use Bookstore\Domain\Payer;
 
 
@@ -89,6 +90,12 @@ $secondCustomer = new Premium(
     "f.pujihastuti@gmail.com"
 );
 
+$manager = new Manager();
+
+$manager->sign();
+echo '<br>';
+
+$manager->makeSign();
 
 //var_dump(processPayment($firstCustomer, 100.00));
 //echo '<br>';
@@ -96,7 +103,9 @@ $secondCustomer = new Premium(
 //var_dump(processPayment($secondCustomer, 100.00));
 
 
-var_dump($firstCustomer->getId());
+//var_dump($firstCustomer->getId());
+
+
 
 
 
