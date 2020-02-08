@@ -3,10 +3,6 @@
 use Bookstore\Domain\Book as MyBook;
 use Bookstore\Domain\Customer;
 
-// Lets require classes
-//require_once __DIR__ . '/Domain/Book.php';
-//require_once __DIR__ . '/Domain/Customer.php';
-
 
 // Autoloader function to autoload classes
 function autoloader($className)
@@ -20,6 +16,12 @@ function autoloader($className)
 
 spl_autoload_register('autoloader');
 
+
+// Check if valid
+function checkIfValid(Customer $customer, $books)
+{
+    return $customer->getAmountToBorrow() >= count($books);
+}
 
 // Instantiate
 $harry_potter = new MyBook(
@@ -92,4 +94,7 @@ $secondCustomer = new Customer(
 
 //var_dump($firstCustomer);
 
-var_dump($firstCustomer->sayHi());
+//var_dump($firstCustomer->sayHi());
+
+var_dump(checkIfValid($firstCustomer, $harry_potter));
+
